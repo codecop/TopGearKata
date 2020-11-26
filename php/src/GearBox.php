@@ -24,15 +24,28 @@ class GearBox
 {
     public $gear = 0;
 
+    public function __construct()
+    {
+        $this->ranges = [
+            0 => [0, -PHP_INT_MAX],
+            1 => [2000, -PHP_INT_MAX],
+            2 => [2000, 500],
+            3 => [2000, 500],
+            4 => [2000, 500],
+            5 => [2000, 500],
+            6 => [PHP_INT_MAX, 500],
+        ];
+    }
+
     public function doIt($rpm)
     {
         if ($this->gear < 0) {
             // do nothing!
         } else {
             if ($this->gear > 0) {
-                if ($rpm > 2000) {
+                if ($rpm > $this->ranges[$this->gear][0]) {
                     $this->gear++;
-                } else if ($rpm < 500) {
+                } else if ($rpm < $this->ranges[$this->gear][1]) {
                     $this->gear--;
                 }
             }
