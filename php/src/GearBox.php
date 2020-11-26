@@ -22,29 +22,29 @@
  */
 class GearBox
 {
-    private $s = 0;
+    private $gear = 0;
     private $e = 0;
 
-    public function doIt($i)
+    public function doIt($rpm)
     {
-        if ($this->s < 0) {
+        if ($this->gear < 0) {
             // do nothing!
-            $this->e = $i;
+            $this->e = $rpm;
         } else {
-            if ($this->s > 0) {
-                if ($i > 2000) {
-                    $this->s++;
+            if ($this->gear > 0) {
+                if ($rpm > 2000) {
+                    $this->gear++;
                 }
 
-            } else if ($i < 500) {
-                $this->s--;
+            } else if ($rpm < 500) {
+                $this->gear--;
             }
         }
-        if ($this->s > 6) {
-            $this->s--;
-        } else if ($this->s < 1) {
-            $this->s++;
+        if ($this->gear > 6) {
+            $this->gear--;
+        } else if ($this->gear < 1) {
+            $this->gear++;
         }
-        $this->e = $i;
+        $this->e = $rpm;
     }
 }
