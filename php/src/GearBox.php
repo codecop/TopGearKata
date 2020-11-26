@@ -41,20 +41,14 @@ class GearBox
     {
         if ($this->gear < 0) {
             // do nothing!
-        } else {
-            if ($this->gear > 0) {
-                if ($rpm > $this->ranges[$this->gear][0]) {
-                    $this->gear++;
-                } else if ($rpm < $this->ranges[$this->gear][1]) {
-                    $this->gear--;
-                }
-            }
-
-            if ($this->gear > 6) {
-                $this->gear--;
-            } else if ($this->gear < 1) {
-                $this->gear++;
-            }
+            return;
         }
+
+        if ($rpm > $this->ranges[$this->gear][0]) {
+            $this->gear++;
+        } else if ($rpm < $this->ranges[$this->gear][1]) {
+            $this->gear--;
+        }
+
     }
 }
