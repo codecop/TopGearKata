@@ -10,7 +10,7 @@ class GearTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(0, $gb->gear);
 
         // go up
-        $gb->doIt(2001);
+        $gb->doIt(1);
         $this->assertEquals(1, $gb->gear);
 
         // not fast enough
