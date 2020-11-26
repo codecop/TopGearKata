@@ -22,7 +22,7 @@
  */
 class GearBox
 {
-    private $gear = 0;
+    public $gear = 0;
 
     public function doIt($rpm)
     {
