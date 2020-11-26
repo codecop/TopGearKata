@@ -32,17 +32,16 @@ class GearBox
             if ($this->gear > 0) {
                 if ($rpm > 2000) {
                     $this->gear++;
+                } else if ($rpm < 500) {
+                    $this->gear--;
                 }
-
-            } else if ($rpm < 500) {
-                $this->gear--;
             }
-        }
 
-        if ($this->gear > 6) {
-            $this->gear--;
-        } else if ($this->gear < 1) {
-            $this->gear++;
+            if ($this->gear > 6) {
+                $this->gear--;
+            } else if ($this->gear < 1) {
+                $this->gear++;
+            }
         }
     }
 }
