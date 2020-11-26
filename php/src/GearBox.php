@@ -23,13 +23,11 @@
 class GearBox
 {
     private $gear = 0;
-    private $e = 0;
 
     public function doIt($rpm)
     {
         if ($this->gear < 0) {
             // do nothing!
-            $this->e = $rpm;
         } else {
             if ($this->gear > 0) {
                 if ($rpm > 2000) {
@@ -40,11 +38,11 @@ class GearBox
                 $this->gear--;
             }
         }
+
         if ($this->gear > 6) {
             $this->gear--;
         } else if ($this->gear < 1) {
             $this->gear++;
         }
-        $this->e = $rpm;
     }
 }
